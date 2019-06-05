@@ -1,0 +1,27 @@
+{
+  "name": "md-links",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "directories": {
+    "test": "jest"
+  },
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^24.8.0",
+    "babel-preset-env": "^1.7.0"
+  },
+  "bin": {
+    "md-links": "./src/cli.js"
+  }
+}
