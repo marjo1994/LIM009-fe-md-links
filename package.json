@@ -7,7 +7,8 @@
     "test": "jest"
   },
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "build": "babel src -d lib"
   },
   "author": "",
   "license": "ISC",
@@ -15,10 +16,10 @@
     "jest": "^24.8.0"
   },
   "dependencies": {
-    "@babel/core": "^7.4.5",
+    "@babel/core": "^7.0.0",
     "@babel/node": "^7.4.5",
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
-    "babel-cli": "^6.26.0",
+    "@babel/cli": "^7.0.0",
     "babel-jest": "^24.8.0",
     "babel-preset-env": "^1.7.0"
   },
