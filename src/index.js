@@ -32,11 +32,14 @@ export const verifyDirectory = file => {
 export const readDirectory = file => {
     return fspromises.readdir(file)
     .then(result => {
-       console.log(result)
+       return result;
+      // console.log(result)
     })
     .catch(console.log('error'))
 };
-// readDirectory('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example');
+readDirectory('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example')
+.then(r => r.map(convertToAbsolute))
+.then(p => console.log(p));
 
 export const  extensionName = file => {
    console.log(path.extname(file));
@@ -45,10 +48,10 @@ export const  extensionName = file => {
 // extensionName('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md');
 
 // Funciones compuestas 
-const throughDirectory = (file, callback) => {
-   callback(file).forEach(element => {
-      console.log(element)
-   });
-};
+// const throughDirectory = (file, callback) => {
+//    callback(file).forEach(element => {
+//       console.log(element)
+//    });
+// };
 
-throughDirectory('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example', readDirectory);
+// throughDirectory('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example', readDirectory);
