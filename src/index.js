@@ -25,7 +25,7 @@ export const  extensionName = file => {
 }
 // extensionName('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md');
 
-/* Verificar si es un archivo.md */
+/* Verificar si es un archivo.md 
 const pathAbsolute = convertToAbsolute('../LIM009-fe-md-links/example/example_relative.js');
 
 verifyIsFile(pathAbsolute).then(result => {
@@ -38,7 +38,7 @@ verifyIsFile(pathAbsolute).then(result => {
    } else {
       console.log('es un directorio')
    };
-});
+});*/
 
 export const verifyDirectory = file => {
    return fspromises.stat(file)
@@ -58,32 +58,32 @@ export const readDirectory = file => {
     })
 };
 
-const getPathsMarkdowns = (pathDir) => {
-  const arrPaths = [];
-  readDirectory(pathDir)
-   .then(r => r.map((e) => {
-      return path.join(pathDir,e);
-   }))
-   .then(p => {
-      p.forEach(pathAbsolute => {
-         verifyIsFile(pathAbsolute).then(result => {
-            if(result === true) {
-               if(extensionName(pathAbsolute) === '.md') {
-                  return arrPaths.push(pathAbsolute);
-                  // readfile(pathAbsolute).then(console.log)
-               } else {
-                  console.log('no es un archivo .md')
-               }
-            } else {
-               console.log('es un directorio')
-            };
-         });
-      });
+const getPathsMarkdowns = (path) => {
+  const arrPaths = [];  
+   verifyIsFile(path).then(result => {
+      if(result === true) {
+         if(extensionName(path) === '.md') {
+            arrPaths.push(path);
+            // readfile(pathAbsolute).then(console.log)
+         } else {
+            console.log('no es un archivo .md')
+         }
+      } else {
+         readDirectory(path)
+         .then(r => r.map((e) => {
+            path.join(path,e);
+         }))
+         .then(a => a.forEach(element => {
+            arrPaths = arrPaths.concat(getPathsMarkdowns(element))
+         }));         
+      };
    });
-   return arrPaths
-}
+   return arrPaths;
+};
+   
 
-getPathsMarkdowns('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example').then(result => console.log(result));
+getPathsMarkdowns('C:\Users\usuario\Documents\md-links\LIM009-fe-md-links\example')
+.then(result => console.log(result));
 
    
 export const readFile = file => {
@@ -93,11 +93,3 @@ export const readFile = file => {
 
 // readFile('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md');
 
-// Funciones compuestas 
-// const throughDirectory = (file, callback) => {
-//    callback(file).forEach(element => {
-//       console.log(element)
-//    });
-// };
-
-// throughDirectory('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example', readDirectory);
