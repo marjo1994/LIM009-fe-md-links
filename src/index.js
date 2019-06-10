@@ -13,7 +13,6 @@ export const convertToAbsolute = file => {
 };
                                                                      
 export const verifyIsFile = file => { 
-   /// verificar si la ruta es archivo
    return fspromises.stat(file) // retorna promesa con un objeto
    .then (result => {
       return result.isFile(); // retorna el booleano con el valor 
@@ -24,21 +23,6 @@ export const  extensionName = file => {
    return path.extname(file);
 }
 // extensionName('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md');
-
-/* Verificar si es un archivo.md 
-const pathAbsolute = convertToAbsolute('../LIM009-fe-md-links/example/example_relative.js');
-
-verifyIsFile(pathAbsolute).then(result => {
-  if(result === true) {
-      if(extensionName(pathAbsolute) === '.md') {
-         readfile(pathAbsolute).then(console.log)
-      } else {
-         console.log('no es un archivo .md')
-      }
-   } else {
-      console.log('es un directorio')
-   };
-});*/
 
 export const verifyDirectory = file => {
    return fspromises.stat(file)
@@ -58,38 +42,38 @@ export const readDirectory = file => {
     })
 };
 
-const getPathsMarkdowns = (path) => {
-  const arrPaths = [];  
-   verifyIsFile(path).then(result => {
-      if(result === true) {
-         if(extensionName(path) === '.md') {
-            arrPaths.push(path);
-            // readfile(pathAbsolute).then(console.log)
-         } else {
-            console.log('no es un archivo .md')
-         }
-      } else {
-         readDirectory(path)
-         .then(r => r.map((e) => {
-            path.join(path,e);
-         }))
-         .then(a => a.forEach(element => {
-            arrPaths = arrPaths.concat(getPathsMarkdowns(element))
-         }));         
-      };
-   });
-   return arrPaths;
-};
-   
-
-getPathsMarkdowns('C:\Users\usuario\Documents\md-links\LIM009-fe-md-links\example')
-.then(result => console.log(result));
-
-   
 export const readFile = file => {
    return fspromises.readFile(file)
    .then(buffer => buffer.toString());
 }
 
 // readFile('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md');
+
+const getPathsMarkdowns = (pathAb) => {
+  const arrPaths = [];  
+   verifyIsFile(pathAb).then(result => {
+      if(result === true) {
+         if(extensionName(pathAb) === '.md') {
+            arrPaths.push(pathAb);
+            // console.log(arrPaths);
+            // readfile(pathAbsolute).then(console.log)
+         } else {
+            arrPaths.push(0);
+            // console.log(arrPaths);
+         }
+      } else {
+         readDirectory(pathAb)
+         .then(r => r.map((e) => {
+            let element = path.join(pathAb,e);
+            getPathsMarkdowns(element);
+         }));
+      };
+   });
+  return Promise.all(arrPaths)
+         .then(paths => paths);
+};   
+getPathsMarkdowns(convertToAbsolute("example"))
+.then(result => console.log(result));
+
+
 
