@@ -74,5 +74,5 @@ const getPaths = (pathAb, arrPaths) => {
 
 getPaths('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example', [])
 .then(result => {
-   result.filter(file => console.log(path.extname(file)== '.md'))
+   console.log(result.filter(file => path.extname(file)== '.md'))
 })
