@@ -20,7 +20,7 @@ export const verifyIsFile = file => {
 };
 
 export const  extensionName = file => {
-   return path.extname(file);
+  return path.extname(file);
 }
 // extensionName('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md');
 
@@ -49,31 +49,30 @@ export const readFile = file => {
 
 // readFile('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md');
 
-const getPathsMarkdowns = (pathAb) => {
-  const arrPaths = [];  
-   verifyIsFile(pathAb).then(result => {
-      if(result === true) {
-         if(extensionName(pathAb) === '.md') {
-            arrPaths.push(pathAb);
-            // console.log(arrPaths);
-            // readfile(pathAbsolute).then(console.log)
-         } else {
-            arrPaths.push(0);
-            // console.log(arrPaths);
-         }
-      } else {
-         readDirectory(pathAb)
-         .then(r => r.map((e) => {
-            let element = path.join(pathAb,e);
-            getPathsMarkdowns(element);
-         }));
-      };
+const getPaths = (pathAb, arrPaths) => {   
+   const promise = new Promise((resolve) => {      
+      verifyIsFile(pathAb).then(result => {
+         if(result) { 
+               arrPaths.push(pathAb);
+               resolve(arrPaths); // resolve ([pathAb])                                                   
+         } 
+         else {
+            readDirectory(pathAb)
+               .then(r => {
+                  const promesas = r.map((e) => {
+                     let element = path.join(pathAb,e);
+                     return getPaths(element, arrPaths);
+                  })
+                  Promise.all(promesas).then(() => resolve(arrPaths))
+            });
+         };              
+      });  
    });
-  return Promise.all(arrPaths)
-         .then(paths => paths);
+   
+  return promise
 };   
-getPathsMarkdowns(convertToAbsolute("example"))
-.then(result => console.log(result));
 
-
-
+getPaths('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example', [])
+.then(result => {
+   result.filter(file => console.log(path.extname(file)== '.md'))
+})
