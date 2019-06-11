@@ -1,6 +1,7 @@
 
 import path from 'path'
 import fs from 'fs'
+import  myMarked from 'marked'
 const fspromises = fs.promises
 
 //Si existe la ruta o no en vez de isAbsolute.
@@ -44,7 +45,7 @@ export const readDirectory = file => {
 
 export const readFile = file => {
    return fspromises.readFile(file)
-   .then(buffer => buffer.toString());
+   .then(buffer => buffer.toString())
 }
 
 // readFile('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md');
@@ -72,7 +73,41 @@ const getPaths = (pathAb, arrPaths) => {
   return promise
 };   
 
-getPaths('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example', [])
-.then(result => {
-   console.log(result.filter(file => path.extname(file)== '.md'))
-})
+const getPathsOfMarkdowns = (arr) => {
+  const pathMarkdown = arr.filter(file => {
+     return path.extname(file) === '.md'
+   });
+   return pathMarkdown;
+}; 
+
+const getLinks = (pathsMd) => {
+   
+   const promise = new Promise(resolve => {
+      const linksOfMarkdownFiles = [];
+      pathsMd.forEach(path => {
+      const renderer = new myMarked.Renderer();
+            renderer.link = (href, title, text) => {                        
+               linksOfMarkdownFiles.push({
+                  href: href,
+                  text: text,
+                  file: path
+               })
+               resolve(linksOfMarkdownFiles);
+            }
+            readFile(path).then(result => {                               
+            return myMarked(result, {renderer: renderer})
+            });
+      });
+
+         
+   });
+   return promise;
+};
+
+getLinks(['/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md','/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/example2.md'])
+.then(result => console.log(result))
+
+
+
+
+

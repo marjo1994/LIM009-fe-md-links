@@ -18,10 +18,11 @@
     "jest": "^24.8.0"
   },
   "dependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
     "@babel/cli": "^7.0.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
     "babel-jest": "^24.8.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "marked": "^0.6.2"
   },
   "bin": {
     "md-links": "./src/cli.js"
