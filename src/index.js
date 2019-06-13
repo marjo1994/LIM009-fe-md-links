@@ -81,33 +81,31 @@ const getPathsOfMarkdowns = (arr) => {
 }; 
 
 const getLinks = (pathsMd) => {
-   
-   const promise = new Promise(resolve => {
-      const linksOfMarkdownFiles = [];
-      pathsMd.forEach(path => {
-      const renderer = new myMarked.Renderer();
-            renderer.link = (href, title, text) => {                        
+
+   const result = pathsMd.map(path => {
+      const promise = new Promise(resolve => {
+         const renderer = new myMarked.Renderer();
+            readFile(path).then(result => {
+            const linksOfMarkdownFiles = [];
+            renderer.link = (href, title, text) => {
                linksOfMarkdownFiles.push({
                   href: href,
                   text: text,
                   file: path
                })
-               resolve(linksOfMarkdownFiles);
+               resolve(linksOfMarkdownFiles)
             }
-            readFile(path).then(result => {                               
-            return myMarked(result, {renderer: renderer})
+            myMarked(result, {renderer: renderer})
             });
       });
-
-         
+      return promise
    });
-   return promise;
-};
-
-getLinks(['/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md','/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/example2.md'])
-.then(result => console.log(result))
-
-
+   return Promise.all(result)
+   .then(links => Array.prototype.concat(...links))
+ };
+ 
+ getLinks(['/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md', '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/prueba.1/example2.md'])
+ .then(result => console.log(result))
 
 
 
