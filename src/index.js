@@ -134,7 +134,7 @@ const getLinks = (pathsMd) => {
     return Promise.all(result)
  }; 
 
- validateHref([ { href: 'https://www.google.com/',
+ /*validateHref([ { href: 'https://www.google.com/',
  text: 'Google',
  file:
   '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md' },
@@ -146,6 +146,24 @@ const getLinks = (pathsMd) => {
  text: 'Yahoo',
  file:
   '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/prueba.1/example2.md' } ])
-  .then(result => console.log(result))
+  .then(result => console.log(result))*/
+
+  const statsOflinks = (arrLinks) => {
+
+   if( ) {
+
+   } else {
+      const stats = {
+         total : arrLinks.length(),
+         unique : new set([...arrLinks]).length,       
+         broken : arrLinks.filter(link => {
+          return link.statusText === 'Fail'
+          })   
+      };
+
+   }
+    
+      
+  }
 
  
