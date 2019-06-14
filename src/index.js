@@ -127,7 +127,9 @@ const getLinks = (pathsMd) => {
                // console.log(response.statusText)            
             }
            }).catch((error) => { 
-              console.log(error);
+               link.status = error.code,
+               link.statusText = 'Fail'
+               resolve(link)
            });
       })
    });
@@ -148,22 +150,54 @@ const getLinks = (pathsMd) => {
   '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/prueba.1/example2.md' } ])
   .then(result => console.log(result))*/
 
-  const statsOflinks = (arrLinks) => {
-
-   if( ) {
-
-   } else {
-      const stats = {
-         total : arrLinks.length(),
-         unique : new set([...arrLinks]).length,       
-         broken : arrLinks.filter(link => {
-          return link.statusText === 'Fail'
-          })   
-      };
-
-   }
-    
-      
+const statsOflinks = (arrLinks) => {
+const arrHref = arrLinks.map(link => link.href);
+     if(arrLinks[0].hasOwnProperty('status')) {
+         const failLinks = arrLinks.filter(link => {
+           return link.statusText === 'Fail'
+           })         
+         const stats = {
+           total : arrLinks.length,
+           unique : new Set([...arrHref]).size,
+           broken : failLinks.length
+           };
+        return stats
+     } else {        
+        const stats = {
+           total : arrLinks.length,
+           unique : new Set([...arrHref]).size,
+        };
+        return stats
+     }
   }
 
- 
+ /* statsOflinks([ { href: 'https://es.yahoo.com/',
+   text: 'Yahoo',
+   file:
+    '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md' },
+ { href: 'https://es.yahoo.com/',
+   text: 'Yahoo',
+   file:
+    '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md' },
+ { href: 'https://es.google.com/',
+   text: 'Google',
+   file:
+    '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/example2.md'
+  } ]); */
+
+  const mdLinks = (path,options) => {
+   return new Promise (resolve => {
+      const pathAb = convertToAbsolute(path);
+      getPaths(pathAb, [])
+      .then(getPathsOfMarkdowns)
+      .then(getLinks).then(result => {
+         if(options.validate) {
+            validateHref(result).then(e =>resolve(e))
+         } else {
+            resolve(result)
+         }
+      });
+   })
+  };
+
+  // mdLinks('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md', { validate: true } ).then(resultado =>console.log(resultado))
