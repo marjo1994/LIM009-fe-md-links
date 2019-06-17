@@ -13,10 +13,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
+    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@babel/preset-env": "^7.4.5",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.8.0",
     "babel-preset-env": "^1.7.0",
     "jest": "^24.8.0"
@@ -26,6 +28,6 @@
     "node-fetch": "^2.6.0"
   },
   "bin": {
-    "md-links": "./src/cli.js"
+    "md-links": "./lib/cli.js"
   }
 }

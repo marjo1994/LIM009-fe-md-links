@@ -48,7 +48,7 @@ export const readFile = file => {
 // readFile('C:\\Users\\usuario\\Documents\\md-links\\LIM009-fe-md-links\\example\\prueba\\example2.md')
 // .then(result => console.log(result))
   
-export const getPaths = (pathAb, arrPaths) => {   
+ export const getPaths = (pathAb, arrPaths) => {   
    const promise = new Promise((resolve) => {      
       verifyIsFile(pathAb).then(result => {
          if(result) { 
@@ -71,8 +71,8 @@ export const getPaths = (pathAb, arrPaths) => {
   return promise
 };
 
-// getPaths('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example', [])
-// .then(result => console.log(result))
+ //getPaths('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/prueba.1', [])
+ //.then(result => console.log(result))
 
 
 export const getPathsOfMarkdowns = (arr) => {
@@ -110,3 +110,5 @@ return Promise.all(result)
 // getLinks(['/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/prueba.1/example2.md',
 // '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md'])
 // .then(result => console.log(result))
+
+

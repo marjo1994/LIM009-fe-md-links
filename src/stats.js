@@ -1,4 +1,4 @@
-export const statsOflinks = (arrLinks) => {
+export const statsOfLinks = (arrLinks) => {
     const arrHref = arrLinks.map(link => link.href);
          if(arrLinks[0].hasOwnProperty('status')) {
              const failLinks = arrLinks.filter(link => {
@@ -17,19 +17,24 @@ export const statsOflinks = (arrLinks) => {
             };
             return stats
          }
-      };
-    
+      };  
      
-      statsOflinks([ { href: 'https://es.yahoo.com/',
-       text: 'Yahoo',
-       file:
-        '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md' },
-     { href: 'https://es.yahoo.com/',
-       text: 'Yahoo',
-       file:
-        '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md' },
-     { href: 'https://es.google.com/',
-       text: 'Google',
-       file:
-        '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/example2.md'
-      } ]); 
+      /* statsOfLinks([ { href: 'https://es.yahoo.com/',
+      text: 'Yahoo',
+      file:
+       '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md',
+       status: 200,
+       statusText: 'ok' },
+      { href: 'https://es.yahoo.com/',
+      text: 'Yahoo',
+      file:
+       '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md',
+       status: 200,
+       statusText: 'ok'},
+      { href: 'https://jestjs.io/404',
+      text: 'Jest',
+      file:
+       '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/example2.md',
+      status: 404,
+      statusText: 'Fail'
+      } ]);*/
