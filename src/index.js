@@ -94,7 +94,8 @@ const getLinks = (pathsMd) => {
                   text: text,
                   file: path
                })
-               resolve(linksOfMarkdownFiles)
+               // resolve(linksOfMarkdownFiles)
+               console.log(linksOfMarkdownFiles)
             }
             myMarked(result, {renderer: renderer})
             });
@@ -102,11 +103,12 @@ const getLinks = (pathsMd) => {
       return promise
    });
    return Promise.all(result)
-   .then(links => Array.prototype.concat(...links))
+   .then(links => links)
+   // Array.prototype.concat(...links)
  };
 
-// getLinks(['/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md', '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/prueba.1/example2.md', '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/example2.md'])
-// .then(result => console.log(result))
+ getLinks(['/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md', '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/prueba.1/example2.md', '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/example2.md'])
+.then(result => result)
 
 
  const validateHref = (arrLinks) => {
@@ -202,4 +204,4 @@ const arrHref = arrLinks.map(link => link.href);
    };
  
 
-mdLinks('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example',{validate: true}).then(resultado =>console.log(resultado))
+mdLinks('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example',{validate: true}).then(resultado => console.log(resultado))
