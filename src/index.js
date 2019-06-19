@@ -16,7 +16,7 @@ export const verifyIsFile = file => {
    return fspromises.stat(file) // retorna promesa con un objeto
    .then (result => {
       return result.isFile(); // retorna el booleano con el valor 
-   })
+   }).catch(error => console.log(error,'error'))
 };
 
 export const  extensionName = file => {

@@ -2,7 +2,7 @@ import {convertToAbsolute, getPaths, getPathsOfMarkdowns, getLinks} from './inde
 import {validateHref} from './validate.js'
 
 export const mdLinks = (path,options) => {
-    return new Promise (resolve => {
+    return new Promise(resolve => {
        const route = convertToAbsolute(path);
        getPaths(route, [])
        .then(getPathsOfMarkdowns)
@@ -17,4 +17,4 @@ export const mdLinks = (path,options) => {
     })      
  };
 
-// mdLinks('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example', {validate: false}).then(resultado => console.log(resultado))
+// mdLinks('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/vacio', {validate: false}).then(resultado => console.log(resultado))

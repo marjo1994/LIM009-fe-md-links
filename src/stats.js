@@ -1,6 +1,6 @@
 export const statsOfLinks = (arrLinks) => {
     const arrHref = arrLinks.map(link => link.href);
-         if(arrLinks[0].hasOwnProperty('status')) {
+      if(arrLinks.length != 0 && arrLinks[0].hasOwnProperty('status')) {
              const failLinks = arrLinks.filter(link => {
                return link.statusText === 'Fail'
                })         
@@ -19,7 +19,7 @@ export const statsOfLinks = (arrLinks) => {
          }
       };  
      
-      /* statsOfLinks([ { href: 'https://es.yahoo.com/',
+     /* statsOfLinks([ { href: 'https://es.yahoo.com/',
       text: 'Yahoo',
       file:
        '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md',
