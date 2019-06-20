@@ -10,8 +10,8 @@ const files = [
 const paths = [path.join(process.cwd(), '/example', '/example.md'),
 path.join(process.cwd(), '/example', '/example_absolute.js'),
 path.join(process.cwd(), '/example', '/example_relative.js'),
-path.join(process.cwd(), '/example', 'prueba', '/example2.md'),
-path.join(process.cwd(), '/example', 'prueba', '/examplefile2.js'),
+path.join(process.cwd(), '/example', '/prueba', '/example2.md'),
+path.join(process.cwd(), '/example', '/prueba', '/examplefile2.js'),
 path.join(process.cwd(), '/example', '/prueba', '/prueba.1', '/example2.md'),
 path.join(process.cwd(), '/example', '/prueba', '/prueba.1', '/examplefile2.js')]
 
@@ -103,7 +103,7 @@ describe('Es una función que obtiene un array de rutas absolutas',() => {
     it('Obtiene un array de rutas absolutas si es un directorio', () => {
         let pathAbsolute = path.join(process.cwd(), '/example')
         return getPaths(pathAbsolute, [])
-        .then(result => expect(result).toEqual(paths))                
+        .then(result => expect(result).toEqual(expect.arrayContaining(paths)))               
     }); 
 });
 
@@ -122,29 +122,29 @@ describe('Es una función que obtiene los links de rutas absolutas .md', () => {
         expect(typeof getLinks).toBe('function')
     });
     it('Obtiene un array de links, un archivo con links y el otro sin links', () => {
-        expect(getLinks([path.join(process.cwd(), '/example', '/prueba', 'example2.md'),
+        expect(getLinks([path.join(process.cwd(), '/example', '/prueba', '/example2.md'),
         path.join(process.cwd(), '/example', '/example.md')])).resolves.toStrictEqual(
         [ { href: 'https://www.google.com/',
         text: 'Google',
         file:
-         '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md' },
+        path.join(process.cwd(), '/example', '/example.md')},
         { href: 'https://elcomercio.pe/',
         text: 'El Comercio',
         file:
-         '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md' } ]
+        path.join(process.cwd(), '/example', '/example.md') } ]
         )
     });
     it('Obtiene un array de links, ambos archivos con links', () => {
         expect(getLinks([path.join(process.cwd(), '/example', '/example.md'),
-        path.join(process.cwd(), '/example', '/example2.md')])).resolves.toEqual(expect.arrayContaining(
+        path.join(process.cwd(), '/example', '/prueba', '/prueba.1', '/example2.md')])).resolves.toEqual(expect.arrayContaining(
         [ { href: 'https://es.yahoo.com/',
         text: 'Yahoo',
         file:
-         '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/prueba.1/example2.md' },
+        path.join(process.cwd(), '/example', '/prueba', '/prueba.1', '/example2.md') },
         { href: 'https://www.google.com/',
         text: 'Google',
         file:
-         '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md' }
+        path.join(process.cwd(), '/example', '/example.md')}
         ]))
     });
     it('Obtiene un array vacío en caso de un archivo que no contenga links', () => {

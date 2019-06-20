@@ -16,7 +16,7 @@ export const verifyIsFile = file => {
    return fspromises.stat(file) // retorna promesa con un objeto
    .then (result => {
       return result.isFile(); // retorna el booleano con el valor 
-   }).catch(error => console.log(error,'error'))
+   });
 };
 
 export const  extensionName = file => {
@@ -49,7 +49,7 @@ export const readFile = file => {
 // .then(result => console.log(result))
   
  export const getPaths = (pathAb, arrPaths) => {   
-   const promise = new Promise((resolve) => {      
+   const promise = new Promise(resolve => {      
       verifyIsFile(pathAb).then(result => {
          if(result) { 
                arrPaths.push(pathAb);
@@ -65,14 +65,15 @@ export const readFile = file => {
                   Promise.all(promesas).then(() => resolve(arrPaths))
             });
          };              
-      });  
+      }).catch(error => console.log(error, 'ingresa una ruta válida'))
+
    });
    
   return promise
 };
 
- //getPaths('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/prueba.1', [])
- //.then(result => console.log(result))
+// getPaths('/home/marjorie/Documentos/md-links/LIM009-fe-md-links/examp', [])
+// .then(result => console.log(result))
 
 
 export const getPathsOfMarkdowns = (arr) => {

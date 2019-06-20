@@ -12,7 +12,7 @@ import {statsOfLinks} from "./stats.js"
 const path = args[0];
 const arrOptions = args.slice(1);
 
-const optionsMdLinks = (arrOptions) => {
+export const optionsMdLinks = (arrOptions) => {
     let validate = false;
     let stats = false;
         arrOptions.forEach(option => {
@@ -26,7 +26,7 @@ const optionsMdLinks = (arrOptions) => {
     return {validate, stats};
 }
 
-const mdLinksCli = (path, arrOptions) => {
+export const mdLinksCli = (path, arrOptions) => {
     const options = optionsMdLinks(arrOptions);
     
     if(!options.stats){
@@ -59,7 +59,8 @@ const mdLinksCli = (path, arrOptions) => {
 
 mdLinksCli(path, arrOptions)
 .then(result => console.log(result))
-.catch(error => console.log(error,'Ingresa ruta válida'))
+
+
 
          
 

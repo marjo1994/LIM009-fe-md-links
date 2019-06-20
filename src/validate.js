@@ -17,8 +17,8 @@ export const validateHref = (arrLinks) => {
              resolve(link)
              // console.log(response.statusText)            
           }
-       }).catch((error) => { 
-             link.status = error.code,
+       }).catch((error) => {
+             link.status = error.message
              link.statusText = 'Fail'
              resolve(link)
        });
@@ -26,9 +26,8 @@ export const validateHref = (arrLinks) => {
  });
   return Promise.all(result)
 }; 
-/* validateHref([{ href: '',
-text: 'Google',
+/* validateHref([{ href: 'https://www.npjs.com/',text: 'Google',
 file:
 '/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/example.md' }
  ])
-.then(result => console.log(result)) */
+.then(result => console.log(result))*/
