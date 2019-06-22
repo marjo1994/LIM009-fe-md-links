@@ -1,6 +1,5 @@
 import {convertToAbsolute, getPaths, getPathsOfMarkdowns, getLinks} from './index.js';
 import {validateHref} from './validate.js';
-import path from 'path';
 
 export const mdLinks = (path, options) => {
   return new Promise((resolve, reject) => {
