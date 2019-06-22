@@ -5,8 +5,7 @@ const files = [
   'example.md',
   'example_absolute.js',
   'example_relative.js',
-  'prueba',
-  'vacio' ];
+  'prueba'];
 const paths = [path.join(process.cwd(), '/example', '/example.md'),
   path.join(process.cwd(), '/example', '/example_absolute.js'),
   path.join(process.cwd(), '/example', '/example_relative.js'),
@@ -148,7 +147,7 @@ describe('Es una función que obtiene los links de rutas absolutas .md', () => {
       ]));
   });
   it('Obtiene un array vacío en caso de un archivo que no contenga links', () => {
-    expect(getLinks(['/home/marjorie/Documentos/md-links/LIM009-fe-md-links/example/prueba/example2.md']))
+    expect(getLinks([path.join(process.cwd(), '/example', '/prueba', '/example2.md')]))
       .resolves.toEqual([]);
   });
 });

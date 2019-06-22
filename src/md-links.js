@@ -18,7 +18,7 @@ export const mdLinks = (path, options) => {
   });
 };
 
-
-// mdLinks(path.join(process.cwd(), '/example', '/prueba', '/prueba.1', '/exampl'), {validate: false})
-// .then(resultado => console.log(resultado));
+/* mdLinks('C:\\Users\\usuario\\Documents\\md-links\\LIM009-fe-md-links\\example', {validate: false})
+  .then(resultado => console.log(resultado));*/
+ 
   

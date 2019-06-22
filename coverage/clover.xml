@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1561071008937" clover="3.2.0">
-  <project timestamp="1561071008938" name="All files">
+<coverage generated="1561232686920" clover="3.2.0">
+  <project timestamp="1561232686921" name="All files">
     <metrics statements="99" coveredstatements="99" conditionals="26" coveredconditionals="26" methods="41" coveredmethods="41" elements="166" coveredelements="166" complexity="0" loc="99" ncloc="99" packages="1" files="5" classes="5"/>
-    <file name="index.js" path="/home/marjorie/Documentos/md-links/LIM009-fe-md-links/src/index.js">
+    <file name="index.js" path="C:\Users\usuario\Documents\md-links\LIM009-fe-md-links\src\index.js">
       <metrics statements="46" coveredstatements="46" conditionals="2" coveredconditionals="2" methods="23" coveredmethods="23"/>
       <line num="4" count="3" type="stmt"/>
       <line num="7" count="3" type="stmt"/>
@@ -10,29 +10,29 @@
       <line num="11" count="3" type="stmt"/>
       <line num="12" count="7" type="stmt"/>
       <line num="15" count="3" type="stmt"/>
-      <line num="16" count="18" type="stmt"/>
-      <line num="18" count="18" type="stmt"/>
+      <line num="16" count="17" type="stmt"/>
+      <line num="18" count="17" type="stmt"/>
       <line num="22" count="3" type="stmt"/>
       <line num="23" count="1" type="stmt"/>
       <line num="27" count="3" type="stmt"/>
       <line num="28" count="1" type="stmt"/>
       <line num="30" count="1" type="stmt"/>
       <line num="37" count="3" type="stmt"/>
-      <line num="38" count="5" type="stmt"/>
+      <line num="38" count="4" type="stmt"/>
       <line num="44" count="3" type="stmt"/>
       <line num="45" count="12" type="stmt"/>
       <line num="51" count="3" type="stmt"/>
-      <line num="52" count="17" type="stmt"/>
-      <line num="53" count="17" type="stmt"/>
-      <line num="54" count="17" type="cond" truecount="2" falsecount="0"/>
+      <line num="52" count="16" type="stmt"/>
+      <line num="53" count="16" type="stmt"/>
+      <line num="54" count="16" type="cond" truecount="2" falsecount="0"/>
       <line num="55" count="13" type="stmt"/>
       <line num="56" count="13" type="stmt"/>
-      <line num="58" count="4" type="stmt"/>
-      <line num="60" count="4" type="stmt"/>
-      <line num="61" count="10" type="stmt"/>
-      <line num="62" count="10" type="stmt"/>
-      <line num="64" count="4" type="stmt"/>
-      <line num="69" count="17" type="stmt"/>
+      <line num="58" count="3" type="stmt"/>
+      <line num="60" count="3" type="stmt"/>
+      <line num="61" count="9" type="stmt"/>
+      <line num="62" count="9" type="stmt"/>
+      <line num="64" count="3" type="stmt"/>
+      <line num="69" count="16" type="stmt"/>
       <line num="76" count="3" type="stmt"/>
       <line num="77" count="7" type="stmt"/>
       <line num="78" count="8" type="stmt"/>
@@ -51,7 +51,7 @@
       <line num="105" count="9" type="stmt"/>
       <line num="106" count="6" type="stmt"/>
     </file>
-    <file name="md-links-cli.js" path="/home/marjorie/Documentos/md-links/LIM009-fe-md-links/src/md-links-cli.js">
+    <file name="md-links-cli.js" path="C:\Users\usuario\Documents\md-links\LIM009-fe-md-links\src\md-links-cli.js">
       <metrics statements="24" coveredstatements="24" conditionals="14" coveredconditionals="14" methods="6" coveredmethods="6"/>
       <line num="4" count="1" type="stmt"/>
       <line num="5" count="6" type="stmt"/>
@@ -78,7 +78,7 @@
       <line num="39" count="1" type="stmt"/>
       <line num="41" count="2" type="stmt"/>
     </file>
-    <file name="md-links.js" path="/home/marjorie/Documentos/md-links/LIM009-fe-md-links/src/md-links.js">
+    <file name="md-links.js" path="C:\Users\usuario\Documents\md-links\LIM009-fe-md-links\src\md-links.js">
       <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
       <line num="5" count="2" type="stmt"/>
       <line num="6" count="6" type="stmt"/>
@@ -88,7 +88,7 @@
       <line num="13" count="3" type="stmt"/>
       <line num="15" count="3" type="stmt"/>
     </file>
-    <file name="stats.js" path="/home/marjorie/Documentos/md-links/LIM009-fe-md-links/src/stats.js">
+    <file name="stats.js" path="C:\Users\usuario\Documents\md-links\LIM009-fe-md-links\src\stats.js">
       <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
       <line num="1" count="2" type="stmt"/>
       <line num="2" count="8" type="stmt"/>
@@ -100,7 +100,7 @@
       <line num="14" count="2" type="stmt"/>
       <line num="18" count="2" type="stmt"/>
     </file>
-    <file name="validate.js" path="/home/marjorie/Documentos/md-links/LIM009-fe-md-links/src/validate.js">
+    <file name="validate.js" path="C:\Users\usuario\Documents\md-links\LIM009-fe-md-links\src\validate.js">
       <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
       <line num="3" count="3" type="stmt"/>
       <line num="4" count="6" type="stmt"/>

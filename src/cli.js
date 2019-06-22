@@ -13,6 +13,14 @@ const arrOptions = args.slice(1);
 
 mdLinksCli(path, arrOptions)
   .then(result => console.log(result))
-  .catch(error => console.log(error.message));
+  .catch(error => {
+    if(error.code === 'ERR_INVALID_ARG_TYPE') {
+      console.log('El argumento debería ser un string')
+    } else if(error.code === 'ENOENT') {
+      console.log('Ingrese una ruta válida')
+    } else {
+      console.log(error.message)
+    }    
+  });
          
 
