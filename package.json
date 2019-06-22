@@ -1,10 +1,12 @@
 {
   "name": "md-links",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Preámbulo",
   "main": "index.js",
   "directories": {
-    "test": "jest"
+    "example": "example",
+    "lib": "lib",
+    "test": "test"
   },
   "scripts": {
     "test": "jest --coverage",
@@ -30,6 +32,14 @@
     "node-fetch": "^2.6.0"
   },
   "bin": {
-    "md-links": "./lib/cli.js"
-  }
+    "md-links": "lib/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marjo1994/LIM009-fe-md-links.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marjo1994/LIM009-fe-md-links/issues"
+  },
+  "homepage": "https://github.com/marjo1994/LIM009-fe-md-links#readme"
 }
