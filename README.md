@@ -18,7 +18,7 @@ herramienta usando [Node.js](https://nodejs.org/), que lea y analice archivos
 en formato `Markdown`, para verificar los links que contengan y reportar
 algunas estadísticas.
 ### Diagrama de Flujo
-![md-links](/images/diagrama_md_links)
+![md-links](/images/diagrama_md_links.jpeg)
 ## Manual de uso
 
 Estos son los criterios de lo que debe ocurrir para que se satisfagan 
