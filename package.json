@@ -2,7 +2,7 @@
   "name": "md-links",
   "version": "1.0.0",
   "description": "## Preámbulo",
-  "main": "index.js",
+  "main": "./lib/md-links.js",
   "directories": {
     "example": "example",
     "lib": "lib",
